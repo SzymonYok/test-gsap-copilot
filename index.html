@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Animacja GSAP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+
+    .step {
+      opacity: 0;
+      transform: translateY(50px);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fermenta Vitalis – skład</h1>
+
+  <div class="step">1. Naturalne probiotyki</div>
+  <div class="step">2. Witaminy i minerały</div>
+  <div class="step">3. 100% organiczny skład</div>
+
+  <script>
+    gsap.timeline()
+      .to(".step:nth-child(2)", { opacity: 1, y: 0, duration: 1 })
+      .to(".step:nth-child(3)", { opacity: 1, y: 0, duration: 1 }, "+=0.5")
+      .to(".step:nth-child(4)", { opacity: 1, y: 0, duration: 1 }, "+=0.5");
+  </script>
+</body>
+</html>
