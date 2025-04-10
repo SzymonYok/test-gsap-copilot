@@ -2,35 +2,61 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Animacja GSAP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fermenta Vitalis</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
     }
-
+    .container {
+      margin-top: 50px;
+    }
     .step {
-      opacity: 0;
-      transform: translateY(50px);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 24px;
+      margin: 20px 0;
+      opacity: 0; /* Ukryj elementy na początku */
+      transform: scale(0.5) translateY(50px); /* Pozycja startowa + skalowanie */
+      color: #333; /* Domyślny kolor tekstu */
     }
   </style>
 </head>
 <body>
-  <h1>Fermenta Vitalis – skład</h1>
-
-  <div class="step">1. Naturalne probiotyki</div>
-  <div class="step">2. Witaminy i minerały</div>
-  <div class="step">3. 100% organiczny skład</div>
-
+  <div class="container">
+    <h1>Fermenta Vitalis</h1>
+    <div class="step" id="step1">Krok 1: Zawiera naturalne probiotyki</div>
+    <div class="step" id="step2">Krok 2: Wzbogacony o witaminy i minerały</div>
+    <div class="step" id="step3">Krok 3: W 100% organiczny</div>
+  </div>
   <script>
+    // Animacja GSAP
     gsap.timeline()
-      .to(".step:nth-child(2)", { opacity: 1, y: 0, duration: 1 })
-      .to(".step:nth-child(3)", { opacity: 1, y: 0, duration: 1 }, "+=0.5")
-      .to(".step:nth-child(4)", { opacity: 1, y: 0, duration: 1 }, "+=0.5");
+      .to("#step1", { 
+        duration: 1, 
+        opacity: 1, 
+        y: 0, 
+        scale: 1, 
+        color: "#0078d7", // Zmiana koloru na niebieski
+        ease: "power2.out" // Płynne przejście
+      })
+      .to("#step2", { 
+        duration: 1, 
+        opacity: 1, 
+        y: 0, 
+        scale: 1, 
+        color: "#28a745", // Zmiana koloru na zielony
+        ease: "power2.out" 
+      }, "+=0.5")
+      .to("#step3", { 
+        duration: 1, 
+        opacity: 1, 
+        y: 0, 
+        scale: 1, 
+        color: "#dc3545", // Zmiana koloru na czerwony
+        ease: "power2.out" 
+      }, "+=0.5");
   </script>
 </body>
 </html>
